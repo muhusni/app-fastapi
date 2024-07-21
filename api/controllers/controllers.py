@@ -1,5 +1,5 @@
 from fastapi.responses import RedirectResponse
-from utils import Browser
+from api.utils import Browser
 from selenium.webdriver.chrome.options import Options
 
 import time

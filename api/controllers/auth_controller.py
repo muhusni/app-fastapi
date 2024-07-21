@@ -5,7 +5,7 @@ from api.schemas import LoginRequest
 from sqlalchemy.orm import Session
 from api.models import User
 from database import get_db
-from utils import verify_password, create_jwt_token
+from api.utils import verify_password, create_jwt_token
 
 class AuthController:   
     @staticmethod 

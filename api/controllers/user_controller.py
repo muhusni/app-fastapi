@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from api.models import User
 from api.schemas.user import UserCreate, UserResponse
 from database import get_db
-from utils import hash_password
+from api.utils import hash_password
 
 class UserController:
     def create_user(self, user: UserCreate, db: Annotated[Session, Depends(get_db)]):
