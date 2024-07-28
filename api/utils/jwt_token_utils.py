@@ -28,3 +28,11 @@ def decode_jwt_token(token: str) -> dict:
         raise ValueError("Token has expired")
     except jwt.InvalidTokenError:
         raise ValueError("Invalid token")
+    
+
+blacklist = set()
+def add_to_blacklist(token: str):
+    blacklist.add(token)
+    
+def is_token_blacklisted(token: str) -> bool:
+    return token in blacklist
