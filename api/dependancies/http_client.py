@@ -3,7 +3,7 @@ from fastapi import Depends
 from api.utils import AsyncHTTPClient
 
 # Dependency function to provide an instance of AsyncHTTPClient
-async def get_http_client() -> AsyncHTTPClient:
+async def get_http_client():
     client = AsyncHTTPClient()
     try:
         yield client

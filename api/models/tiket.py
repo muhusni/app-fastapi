@@ -6,7 +6,7 @@ from database import Base
 class TicketReply(Base):
     __tablename__ = 'ticket_replies'
 
-    id = Column(Integer, primary_key=True, index=True)
+    ID = Column(Integer, primary_key=True, index=True)
     ticketid = Column(Integer, ForeignKey('tickets.ID'))
     userid = Column(Integer, nullable=False)
     body = Column(String, nullable=False)

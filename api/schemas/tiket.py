@@ -3,9 +3,12 @@ from typing import List, Optional
 
 
 class TicketReplyResponse(BaseModel):
-    id: int
+    ID: int
     ticketid: int
-    reply: str
+    body: str
+    userid: int
+    replyid: int
+    files: int
 
     class Config:
         from_attributes = True
@@ -41,10 +44,35 @@ class TiketResponse(BaseModel):
     body: str
     categoryid: Optional[int]
     status: Optional[int]
-    ticket_replies: List[TicketReplyResponse] = []
+    ticketReplies: List[TicketReplyResponse] = []
     ticketCategory: Optional[TicketCategoryResponse]
     ticketStatus: Optional[TicketStatusResponse]
     ticket_IKC: str | None
 
     class Config:
         from_attributes = True
+
+class TiketDuktekResponse(BaseModel):
+    ID: int
+    title: str
+    body: str
+    categoryid: Optional[int]
+    status: Optional[int]
+
+    class Config:
+        from_attributes = True
+
+class TiketIkcResponse(BaseModel):
+    ID: int
+    ticketid: int
+    body: str
+    userid: int
+    replyid: int
+    files: int
+    ticketIkc: int
+    ticket: TiketDuktekResponse
+
+    class Config:
+        from_attributes = True
+
+

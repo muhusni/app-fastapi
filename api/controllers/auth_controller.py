@@ -9,14 +9,14 @@ from api.schemas import EmployeeResponse
 from sqlalchemy.orm import joinedload
 from api.utils.jwt_token_utils import add_to_blacklist
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 class AuthController:   
     @staticmethod 
     async def get_me(request: Request, ):
         user = getattr(request.state, "user", None)
         if user is None:
             raise HTTPException(status_code=401, detail="Unauthorized")
-        return {**request.state.state}
+        return {**request.state._state}
     
     @staticmethod 
     async def login(login: Annotated[OAuth2PasswordRequestForm, Depends()], db: Annotated[Session, Depends(get_db_sso)]):
