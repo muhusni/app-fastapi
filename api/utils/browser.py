@@ -1,4 +1,4 @@
-from selenium import webdriver
+from seleniumwire import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -10,7 +10,7 @@ class Browser:
 
     def __init__(self, driver: str = "chrome", opt=None):
         if driver.lower() == "chrome":
-            self.browser = webdriver.Chrome(options=opt)
+            self.browser = webdriver.Chrome(seleniumwire_options=opt)
         else:
             self.browser = webdriver.Firefox(options=opt)
 

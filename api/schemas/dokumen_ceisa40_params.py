@@ -8,6 +8,7 @@ class DokumenCeisa40Params(BaseModel):
     namaPerusahaan: Optional[str] = ""
     nomorAju: Optional[str] = ""
     kodeProses: Optional[str] = ""
+    status: Optional[str] = ""
     kodeDokumen: Optional[str] = ""
     nomorDaftar: Optional[str] = ""
     tanggalDokumenEnd: Optional[str] = ""
