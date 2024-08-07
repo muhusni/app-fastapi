@@ -32,12 +32,13 @@ router.get("/tickets", dependencies=[Depends(AuthBearer())], response_model=Tike
 #ceisa 40
 router.get("/ceisa40/dokumen/v1", dependencies=[Depends(AuthBearer())])(ceisa40_controller.get_dokumen_v1)
 router.get("/ceisa40/dokumen", dependencies=[Depends(AuthBearer())])(ceisa40_controller.get_dokumen_by_params)
-router.get("/ceisa40/dokumen/status/{id_header}", dependencies=[Depends(AuthBearer())])(ceisa40_controller.get_status_dokumen)
-router.get("/ceisa40/dokumen/respon/{id_header}/{nomor_aju}", dependencies=[Depends(AuthBearer())])(ceisa40_controller.get_respon_dokumen)
-router.get("/ceisa40/dokumen/{nomor_aju}", dependencies=[Depends(AuthBearer())])(ceisa40_controller.get_dokumen_by_aju)
 router.get("/ceisa40/dokumen/respon-awal/{nomor_aju}/{id_respon_awal}")(ceisa40_controller.download_respon_awal_dokumen)
 router.get("/ceisa40/dokumen/respon-pdf/{id_header}/{id_respon}")(ceisa40_controller.download_respon_dokumen)
 router.get("/ceisa40/dokumen/draf/{kode_dokumen}/{id_header}")(ceisa40_controller.download_draf_dokumen)
+router.get("/ceisa40/dokumen/status/{id_header}", dependencies=[Depends(AuthBearer())])(ceisa40_controller.get_status_dokumen)
+router.get("/ceisa40/dokumen/respon/{id_header}/{nomor_aju}", dependencies=[Depends(AuthBearer())])(ceisa40_controller.get_respon_dokumen)
+router.get("/ceisa40/dokumen/{nomor_aju}", dependencies=[Depends(AuthBearer())])(ceisa40_controller.get_dokumen_by_aju)
+
 
 # INSW
 router.get("/insw/{dokumen}/{nomor_aju}", dependencies=[Depends(AuthBearer())])(insw_controller.get_dokumen_insw)

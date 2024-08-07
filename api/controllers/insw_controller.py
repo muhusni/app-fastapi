@@ -44,7 +44,7 @@ class InswController():
         if bearer_token:
             headers = {'Authorization': f'Bearer {bearer_token}'}
             check_url = 'https://sso.insw.go.id/api/v1/auth/check'
-            response = await http.get(check_url, headers=headers)
+            response = await http.client.get(check_url, headers=headers)
             if response.status_code == 200:
                 print(response)
                 return bearer_token  # Token is valid, return it
